@@ -3,17 +3,21 @@ body {
 }
 
 .container {
+ margin-top: 3%;
+}
+
+.board {
   background-color: white;
-  border: 1px solid black;
-  height: 600px;
-  margin-top: 8%;
+}
+
+.cell {
+  background-size: contain;
+  box-sizing: border-box;
+  float: left;
+  height: 15px;
+  width: 16px;
 }
 
 .target {
   background-color: blue;
-  height: 80px;
-  weight: 10px;
-  position: relative;
-  top: 10%;
-  left: 30%;
 }
