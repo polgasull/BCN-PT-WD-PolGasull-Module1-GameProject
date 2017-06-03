@@ -1,0 +1,19 @@
+body {
+  background-color: red;
+}
+
+.container {
+  background-color: white;
+  border: 1px solid black;
+  height: 600px;
+  margin-top: 8%;
+}
+
+.target {
+  background-color: blue;
+  height: 80px;
+  weight: 10px;
+  position: relative;
+  top: 10%;
+  left: 30%;
+}
