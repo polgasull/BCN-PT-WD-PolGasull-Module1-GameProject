@@ -8,18 +8,8 @@ body {
   height: 600px;
 }
 
-.col-xs-3 {
-  height: 200px;
-}
-
-.top-target-img {
-  width: 25%;
-}
-
-.mid-target-img {
-  width: 60%;
-}
-
-.bottom-target-img {
-  width: 80%;
+.target {
+  background-color: blue;
+  height: 100px;
+  width: 100px;
 }
