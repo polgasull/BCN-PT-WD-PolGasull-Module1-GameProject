@@ -1,23 +1,25 @@
 body {
-  background-color: red;
+  background-image: url("img/maxresdefault.jpg");
 }
 
 .container {
- margin-top: 3%;
-}
-
-.board {
   background-color: white;
+  margin-top: 5%;
+  height: 600px;
 }
 
-.cell {
-  background-size: contain;
-  box-sizing: border-box;
-  float: left;
-  height: 15px;
-  width: 16px;
+.col-xs-3 {
+  height: 200px;
 }
 
-.target {
-  background-color: blue;
+.top-target-img {
+  width: 25%;
+}
+
+.mid-target-img {
+  width: 60%;
+}
+
+.bottom-target-img {
+  width: 80%;
 }
