@@ -2,6 +2,7 @@ body {
   background-image: url("img/maxresdefault.jpg");
 }
 
+
 .container {
   background-color: white;
   margin-top: 5%;
@@ -12,4 +13,9 @@ body {
   background-color: blue;
   height: 100px;
   width: 100px;
+}
+
+.board {
+  background-color: black;
+  height: 600px;
 }
