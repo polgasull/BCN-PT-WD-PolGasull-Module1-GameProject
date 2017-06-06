@@ -7,15 +7,23 @@ body {
   background-color: white;
   margin-top: 5%;
   height: 600px;
+  padding: 0;
 }
 
 .target {
-  background-color: blue;
+  position: relative;
   height: 100px;
   width: 100px;
 }
 
 .board {
   background-color: black;
-  height: 600px;
+}
+
+.cell {
+  background-size: contain;
+  box-sizing: border-box;
+  float: left;
+  height: 16px;
+  width: 16px;
 }
