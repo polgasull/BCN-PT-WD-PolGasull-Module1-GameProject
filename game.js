@@ -20,34 +20,25 @@ $(document).ready(function() {
   }
 
   Game.prototype.generateTarget = function() {
-    while (this.target) {
-      this.food = {
+      this.target = {
         row: Math.floor(Math.random() * this.rows),
         column: Math.floor(Math.random() * this.columns)
       };
-    }
-  };
+    };
 
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
     $(selector).addClass("target");
   };
 
-  Game.prototype.clearTarget = function() {
-    $(".Target").removeClass("target");
-  };
-
-
   var game = new Game({
     rows: 50,
     columns: 52,
   });
-
+  game.generateTarget();
+  game.drawTarget();
+  game.killTarget();
 
 });
-
-
-
-
 
 console.log("LINKED!!!");
