@@ -28,16 +28,22 @@ $(document).ready(function() {
 
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
-    $(selector).addClass("target");
+   $(selector).addClass('target');
   };
 
-  var game = new Game({
+
+
+
+  var myGame = new Game({
     rows: 50,
     columns: 52,
   });
-  game.generateTarget();
-  game.drawTarget();
-  game.killTarget();
+
+  myGame.generateTarget();
+  myGame.drawTarget();
+
+  var pickTarget = $(".target");
+  var myTarget = new Target(pickTarget, "yellow");
 
 });
 
