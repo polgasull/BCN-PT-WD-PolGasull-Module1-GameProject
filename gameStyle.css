@@ -3,15 +3,17 @@ body {
 }
 
 .container {
-  background-color: white;
   margin-top: 5%;
   width: 1000px;
   height: 600px;
   padding: 0;
+  background: transparent;
+  cursor:crosshair;
 }
 
 .board {
   background-color: #075809;
+  opacity: 0.8;
 }
 
 .cell {
@@ -25,6 +27,4 @@ body {
 .target {
   background-color: red;
   position: relative;
-  height: 40px;
-  width: 40px;
 }

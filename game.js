@@ -1,12 +1,9 @@
-$(document).ready(function() {
 
   function Game(options) {
       this.rows    = options.rows;
       this.columns = options.columns;
-      this.target = {
-      row: Math.floor(Math.random() * this.rows),
-      column: Math.floor(Math.random() * this.columns)
-      };
+      this.target = new Target(options.rows, options.columns);
+      this.points = 0;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
      for (var columnIndex = 0; columnIndex < this.columns; columnIndex++){
@@ -20,30 +17,53 @@ $(document).ready(function() {
   }
 
   Game.prototype.generateTarget = function() {
-      this.target = {
-        row: Math.floor(Math.random() * this.rows),
-        column: Math.floor(Math.random() * this.columns)
-      };
+      this.target = new Target(this.rows, this.columns);
     };
+
+  Game.prototype.start = function() {
+    this.generateTarget();
+  };
 
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
-   $(selector).addClass('target');
+    $(selector).addClass('target');
   };
 
+  Game.prototype.clearTarget = function() {
+    var self = this;
+    $(".target").click(function() {
+      $(".target").removeClass("target");
+      self.generateTarget();
+      self.drawTarget();
+      self.clearTarget();
+    });
+  };
 
+  Game.prototype.removeAllTargets = function() {
+    $(".target").removeClass("target");
+  };
 
+  Game.prototype.count = function() {
+    $(".target").click(function() {
+      console.log(this.points + 1);
+    });
+  };
+
+$(document).ready(function() {
 
   var myGame = new Game({
     rows: 50,
     columns: 52,
   });
 
-  myGame.generateTarget();
-  myGame.drawTarget();
+  setInterval( function(){
+    myGame.generateTarget();
+    myGame.removeAllTargets();
+    myGame.drawTarget();
+    myGame.clearTarget();
+  }, 3000);
 
-  var pickTarget = $(".target");
-  var myTarget = new Target(pickTarget, "yellow");
+    myGame.count();
 
 });
 

@@ -1,9 +1,11 @@
+function Target(gameRows, gameColumns) {
 
-function Target(target, deadColor) {
+  this.row = Math.floor(Math.random() * gameRows);
+  this.column = Math.floor(Math.random() * gameColumns);
 
-  this.receiveDamage = $(target).click(function() {
-    $(target).css("background", deadColor);
-    $(target).hide("");
+}
+
+$(document).ready(function() {
+
 
 });
-}
