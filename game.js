@@ -27,26 +27,34 @@
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
     $(selector).addClass('target');
+    this.countPoints();
   };
 
   Game.prototype.clearTarget = function() {
     var self = this;
-    $(".target").click(function() {
-      $(".target").removeClass("target");
+    $(".target").removeClass("target");
       self.generateTarget();
       self.drawTarget();
+  };
+
+  Game.prototype.killTarget = function() {
+    var self = this;
+    $(".target").click(function() {
       self.clearTarget();
-    });
+      });
   };
 
   Game.prototype.removeAllTargets = function() {
     $(".target").removeClass("target");
   };
 
-  Game.prototype.count = function() {
-    $(".target").click(function() {
-      console.log(this.points + 1);
+  Game.prototype.countPoints = function() {
+    var self = this;
+    $(".target").on("click", function() {
+      this.points += self.points;
+      console.log(self.points += 1);
     });
+
   };
 
 $(document).ready(function() {
@@ -56,14 +64,16 @@ $(document).ready(function() {
     columns: 52,
   });
 
+
   setInterval( function(){
+    myGame.clearTarget();
     myGame.generateTarget();
     myGame.removeAllTargets();
     myGame.drawTarget();
-    myGame.clearTarget();
+    myGame.killTarget();
   }, 3000);
 
-    myGame.count();
+
 
 });
 
