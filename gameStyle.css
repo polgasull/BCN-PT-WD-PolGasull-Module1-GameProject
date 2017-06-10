@@ -26,8 +26,19 @@ body {
 }
 
 .target {
-  background-image: url("img/terrorist_2.png");
   position: relative;
+}
+
+.police {
+  background-image: url("img/pollo.png");
+}
+
+.terro {
+  background-image: url("img/terrorist_2.png");
+}
+
+.deadTarget {
+  background-image: url("img/bloodbullethole.png");
 }
 
 .totalPoints, .displayTimer {

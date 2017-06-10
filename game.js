@@ -20,57 +20,76 @@ function Game(options) {
   }
 
   Game.prototype.generateTarget = function() {
-      this.target = new Target(this.rows, this.columns);
+      var targetType = Math.random() < 0.7;
+      this.target = new Target(this.rows, this.columns, targetType);
     };
 
   Game.prototype.start = function() {
     var self = this;
-    var countdown = setInterval( function() {
-      self.countDown();
+    this.countdown = setInterval( function() {
+      self.countDownTimer();
     }, 1000);
-    this.generateTarget();
+      this.generateTarget();
+
+    setInterval( function(){
+        myGame.clearTarget();
+      }, 3000);
   };
 
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
     $(selector).addClass('target');
+
+    if (this.target.goodTarget){
+      $(selector).addClass('terro');
+    } else {
+      $(selector).addClass('police');
+    }
+
     this.killTarget();
   };
 
   Game.prototype.clearTarget = function() {
-    // $(".target").removeClass("target");
+    $("div").unbind();
     this.removeAllTargets();
     this.generateTarget();
-    this.drawTarget();
+      this.drawTarget();
   };
 
   Game.prototype.killTarget = function() {
     var self = this;
     $('.target').on("click",function(){
-      console.log("entra ");
-      var isTouched = self.target.isTouched();
-        if(isTouched) {
-          self.clearTarget();
+      var targetTouched = self.target.isTouched();
+        if (targetTouched) {
+          $(".target").addClass("deadTarget");
           self.countPoints();
+          $("div").unbind();
+          setTimeout(function(){
+            $(".deadTarget").removeClass("deadTarget");
+            self.clearTarget();
+            }, 2000);
         }
     });
   };
 
   Game.prototype.removeAllTargets = function() {
-    $(".target").removeClass("target");
+    $(".target").removeClass("target police terro");
   };
 
   Game.prototype.countPoints = function() {
     console.log(this.points);
-    $(".totalPoints span").text(this.points += 5);
+    if (this.target.goodTarget) {
+      $(".totalPoints span").text(this.points += 5);
+    } else {
+      $(".totalPoints span").text(this.points -= 5);
+    }
   };
 
-  Game.prototype.countDown = function() {
+  Game.prototype.countDownTimer = function() {
       $(".displayTimer span").text(this.timer--);
-    //  console.log(this.timer);
       if (this.timer === 0) {
         alert("GAME OVER");
-        clearInterval(countdown);
+        clearInterval(this.countdown);
       }
   };
 
@@ -82,10 +101,6 @@ $(document).ready(function() {
   });
 
   myGame.start();
-
-  setInterval( function(){
-    myGame.clearTarget();
-  }, 3000);
 
 });
 
