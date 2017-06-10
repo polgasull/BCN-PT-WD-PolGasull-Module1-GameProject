@@ -27,7 +27,7 @@
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
     $(selector).addClass('target');
-    this.countPoints();
+    this.killTarget();
   };
 
   Game.prototype.clearTarget = function() {
@@ -41,6 +41,7 @@
     var self = this;
     $(".target").click(function() {
       self.clearTarget();
+      self.countPoints();
       });
   };
 
@@ -50,11 +51,11 @@
 
   Game.prototype.countPoints = function() {
     var self = this;
-    $(".target").on("click", function() {
-      this.points += self.points;
-      console.log(self.points += 1);
-    });
-
+    console.log(this.points++);
+    // $(".target").on("click", function() {
+    //   this.points += self.points;
+    //   console.log(self.points += 1);
+    // });
   };
 
 $(document).ready(function() {
@@ -64,16 +65,9 @@ $(document).ready(function() {
     columns: 52,
   });
 
-
   setInterval( function(){
     myGame.clearTarget();
-    myGame.generateTarget();
-    myGame.removeAllTargets();
-    myGame.drawTarget();
-    myGame.killTarget();
   }, 3000);
-
-
 
 });
 
