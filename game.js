@@ -1,5 +1,7 @@
 
-  function Game(options) {
+
+
+function Game(options) {
       this.rows    = options.rows;
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
@@ -22,6 +24,10 @@
     };
 
   Game.prototype.start = function() {
+    var self = this;
+    var countdown = setInterval( function() {
+      self.countDown();
+    }, 1000);
     this.generateTarget();
   };
 
@@ -32,22 +38,22 @@
   };
 
   Game.prototype.clearTarget = function() {
-    var self = this;
     // $(".target").removeClass("target");
-      this.removeAllTargets();
-      self.generateTarget();
-      self.drawTarget();
+    this.removeAllTargets();
+    this.generateTarget();
+    this.drawTarget();
   };
 
   Game.prototype.killTarget = function() {
     var self = this;
-    $(".target").click(function() {
+    $('.target').on("click",function(){
+      console.log("entra ");
       var isTouched = self.target.isTouched();
-      if(isTouched) {
-        self.clearTarget();
-        self.countPoints();
-      }
-      });
+        if(isTouched) {
+          self.clearTarget();
+          self.countPoints();
+        }
+    });
   };
 
   Game.prototype.removeAllTargets = function() {
@@ -55,31 +61,30 @@
   };
 
   Game.prototype.countPoints = function() {
+    console.log(this.points);
     $(".totalPoints span").text(this.points += 5);
   };
 
   Game.prototype.countDown = function() {
       $(".displayTimer span").text(this.timer--);
-      console.log(this.timer);
+    //  console.log(this.timer);
       if (this.timer === 0) {
         alert("GAME OVER");
-        clearInterval();
+        clearInterval(countdown);
       }
   };
 
 $(document).ready(function() {
 
-  var myGame = new Game({
+  myGame = new Game({
     rows: 5,
     columns: 12,
   });
 
-  setInterval( function() {
-  myGame.countDown();
-  }, 1000);
+  myGame.start();
 
   setInterval( function(){
-    myGame.drawTarget();
+    myGame.clearTarget();
   }, 3000);
 
 });
