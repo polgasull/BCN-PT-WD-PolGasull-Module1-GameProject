@@ -4,7 +4,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 60;
+      this.timer = 25;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
      for (var columnIndex = 0; columnIndex < this.columns; columnIndex++){
@@ -30,8 +30,8 @@ function Game(options) {
       this.generateTarget();
 
     this.autoClear = setInterval( function(){
-        myGame.autoRemoveTarget();
-      }, 4000);
+        self.autoRemoveTarget();
+      }, 3000);
   };
 
   Game.prototype.drawTarget = function(){
@@ -49,7 +49,6 @@ function Game(options) {
 
   Game.prototype.autoRemoveTarget = function() {
     $("div").unbind();
-    clearInterval(this.autoClear);
     this.removeAllTargets();
     this.generateTarget();
     this.drawTarget();
@@ -86,8 +85,8 @@ function Game(options) {
 
   Game.prototype.countDownTimer = function() {
       $(".displayTimer span").text(this.timer--);
-      if (this.timer === 0) {
-        alert("GAME OVER");
+      if (this.timer === -1) {
+        $( ".container" ).append( "<p>GAME OVER</p>" );
         clearInterval(this.countdown);
       }
   };

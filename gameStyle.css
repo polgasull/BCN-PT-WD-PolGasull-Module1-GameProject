@@ -45,3 +45,10 @@ body {
   display: inline-block;
   padding-left: 20%;
 }
+
+.container p {
+  position: absolute;
+  left: 30%;
+  top: 10%;
+  font-size: 200px;
+}
