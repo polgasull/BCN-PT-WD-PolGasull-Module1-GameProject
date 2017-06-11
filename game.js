@@ -1,6 +1,4 @@
 
-
-
 function Game(options) {
       this.rows    = options.rows;
       this.columns = options.columns;
@@ -20,9 +18,9 @@ function Game(options) {
   }
 
   Game.prototype.generateTarget = function() {
-      var targetType = Math.random() < 0.7;
-      this.target = new Target(this.rows, this.columns, targetType);
-    };
+    var targetType = Math.random() < 0.7;
+    this.target = new Target(this.rows, this.columns, targetType);
+  };
 
   Game.prototype.start = function() {
     var self = this;
@@ -31,32 +29,33 @@ function Game(options) {
     }, 1000);
       this.generateTarget();
 
-    setInterval( function(){
-        myGame.clearTarget();
-      }, 3000);
+    this.autoClear = setInterval( function(){
+        myGame.autoRemoveTarget();
+      }, 4000);
   };
 
   Game.prototype.drawTarget = function(){
     var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
     $(selector).addClass('target');
 
-    if (this.target.goodTarget){
+    if (this.target.targetRole){
       $(selector).addClass('terro');
     } else {
-      $(selector).addClass('police');
+      $(selector).addClass('pollo');
     }
 
-    this.killTarget();
+    this.touchTarget();
   };
 
-  Game.prototype.clearTarget = function() {
+  Game.prototype.autoRemoveTarget = function() {
     $("div").unbind();
+    clearInterval(this.autoClear);
     this.removeAllTargets();
     this.generateTarget();
-      this.drawTarget();
+    this.drawTarget();
   };
 
-  Game.prototype.killTarget = function() {
+  Game.prototype.touchTarget = function() {
     var self = this;
     $('.target').on("click",function(){
       var targetTouched = self.target.isTouched();
@@ -66,19 +65,19 @@ function Game(options) {
           $("div").unbind();
           setTimeout(function(){
             $(".deadTarget").removeClass("deadTarget");
-            self.clearTarget();
-            }, 2000);
+            self.autoRemoveTarget();
+          }, 2000);
         }
     });
   };
 
   Game.prototype.removeAllTargets = function() {
-    $(".target").removeClass("target police terro");
+    $(".target").removeClass("target pollo terro");
   };
 
   Game.prototype.countPoints = function() {
     console.log(this.points);
-    if (this.target.goodTarget) {
+    if (this.target.targetRole) {
       $(".totalPoints span").text(this.points += 5);
     } else {
       $(".totalPoints span").text(this.points -= 5);
