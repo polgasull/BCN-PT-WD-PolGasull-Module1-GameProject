@@ -4,7 +4,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 25;
+      this.timer = 10;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
      for (var columnIndex = 0; columnIndex < this.columns; columnIndex++){
@@ -88,6 +88,8 @@ function Game(options) {
       if (this.timer === -1) {
         $( ".container" ).append( "<p>GAME OVER</p>" );
         clearInterval(this.countdown);
+        this.removeAllTargets();
+        clearInterval(this.autoClear);
       }
   };
 
