@@ -39,6 +39,7 @@ body {
 
 .deadTarget {
   background-image: url("img/bloodbullethole.png");
+  
 }
 
 .totalPoints, .displayTimer {
