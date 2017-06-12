@@ -25,10 +25,10 @@ Game.prototype.start = function() {
   var self = this;
   this.countdown = setInterval( function() {
     self.countDownTimer();
+    self.generateTarget();
   }, 1000);
-    this.generateTarget();
 
-  this.autoClear = setInterval( function(){
+  this.autorun = setInterval( function(){
       self.autoCreateTarget();
     }, 3000);
 };
@@ -88,7 +88,7 @@ Game.prototype.countDownTimer = function() {
       $( ".container" ).append( "<p>GAME OVER</p>" );
       clearInterval(this.countdown);
       this.removeAllTargets();
-      clearInterval(this.autoClear);
+      clearInterval(this.autorun);
     }
 };
 
@@ -96,7 +96,8 @@ Game.prototype.assignControlsToKeys = function() {
   $("body").on("keydown", function(event){
     switch (event.keyCode) {
       case 80:
-        if (this.countdown) {
+        if (this.countdown, this.autorun) {
+          $( ".container" ).append( "<p>GAME PAUSED</p>" );
           this.stop();
         } else {
           this.start();
@@ -106,8 +107,8 @@ Game.prototype.assignControlsToKeys = function() {
 };
 
 Game.prototype.stop = function() {
-  if (this.countdown) {
-    clearInterval(this.countdown);
+  if (this.countdown, this.autorun) {
+    clearInterval(this.countdown, this.autorun);
   }
 };
 
@@ -120,7 +121,7 @@ $(document).ready(function() {
   });
 
   myGame.start();
-  game.assignControlsToKeys();
+  myGame.assignControlsToKeys();
 
 });
 
