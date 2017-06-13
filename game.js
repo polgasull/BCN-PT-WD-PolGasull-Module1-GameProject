@@ -3,7 +3,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 25;
+      this.timer = 60;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
      for (var columnIndex = 0; columnIndex < this.columns; columnIndex++){
@@ -25,8 +25,8 @@ Game.prototype.start = function() {
   var self = this;
   this.countdown = setInterval( function() {
     self.countDownTimer();
-    self.generateTarget();
   }, 1000);
+  this.generateTarget();
 
   this.autorun = setInterval( function(){
       self.autoCreateTarget();
@@ -37,11 +37,15 @@ Game.prototype.drawTarget = function(){
   var selector = '[data-row=' + this.target.row + '][data-col=' + this.target.column + ']';
   $(selector).addClass('target');
 
-  if (this.target.targetToKill){
-    $(selector).addClass('terro');
-  } else {
-    $(selector).addClass('pollo');
-  }
+      if (this.target.targetToKill){
+        if (this.target.row === 0 && this.target.column === 3 ){
+          $(selector).addClass('knife');
+        } else {
+          $(selector).addClass('terro');
+        }
+      } else {
+        $(selector).addClass('pollo');
+      }
 
   this.touchTarget();
 };
@@ -70,7 +74,7 @@ Game.prototype.touchTarget = function() {
 };
 
 Game.prototype.removeAllTargets = function() {
-  $(".target").removeClass("target pollo terro");
+  $(".target").removeClass("target pollo terro knife");
 };
 
 Game.prototype.countPoints = function() {
@@ -116,8 +120,8 @@ Game.prototype.stop = function() {
 $(document).ready(function() {
 
   myGame = new Game({
-    rows: 5,
-    columns: 12,
+    rows: 1,
+    columns: 9,
   });
 
   myGame.start();
