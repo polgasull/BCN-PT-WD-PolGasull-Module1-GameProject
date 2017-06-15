@@ -4,6 +4,7 @@ function Game(options) {
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
       this.timer = 60;
+      this.bullets = {};
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
      for (var columnIndex = 0; columnIndex < this.columns; columnIndex++){
@@ -19,6 +20,10 @@ function Game(options) {
 Game.prototype.generateTarget = function() {
   var targetType = Math.random() < 0.8;
   this.target = new Target(this.rows, this.columns, targetType);
+};
+
+Game.prototype.generateBullets = function() {
+
 };
 
 Game.prototype.start = function() {
