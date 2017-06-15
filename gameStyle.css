@@ -1,3 +1,36 @@
+body {
+  margin:0;
+}
+
+.wasteland {
+  animation:zoomIn 10s linear infinite alternate;
+  background-image:url("img/sky-wallpapers-2.jpg");
+  background-size:cover;
+  height:100vh;
+  position:fixed;
+  width:100vw;
+  z-index: -1;
+}
+
+.glass {
+  animation:zoomIn 10s linear infinite alternate-reverse;
+  background-image:url("img/Wrinkled_glass_Texture_-_4928_x_3264.jpg");
+  background-size:cover;
+  height:100vh;
+  opacity:.3;
+  position:fixed;
+  width:100vw;
+  z-index: -1;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(1.5);
+  }
+}
 
 .container {
   background-image: url("img/mapaBackground.png");
@@ -14,7 +47,6 @@
 
 .board {
   opacity: 0.8;
-  /*border: 1px solid black;*/
 }
 
 .cell {
@@ -58,7 +90,7 @@
   padding-left: 20%;
   top: 10px;
   left: 40px;
-  z-index: 999999;
+  z-index: 3;
 }
 
 .container p {
@@ -68,36 +100,44 @@
   font-size: 200px;
 }
 
-.cell:nth-child(0n+1)  {
+.balcony {
+  position: relative;
+  z-index: 2;
+  left: 798px;
+  top: 170px;
+  width: 170px;
+}
+
+.cell:nth-child(0n+10)  {
   position: absolute;
   left: 73%;
   top: 26%;
-  width: 40px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
 
 .cell:nth-child(0n+2)  {
   position: absolute;
   left: 70%;
   top: 26%;
-  width: 40px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
 
 .cell:nth-child(0n+3)  {
   position: absolute;
   left: 67%;
   top: 26%;
-  width: 40px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
 
 .cell:nth-child(0n+4)  {
   position: absolute;
-  left: 32%;
-  top: 59%;
+  left: 23%;
+  top: 60%;
   width: 130px;
-  height: 150px;
+  height: 200px;
 }
 
 .cell:nth-child(0n+5)  {
@@ -134,8 +174,8 @@
 
 .cell:nth-child(0n+9)  {
   position: absolute;
-  left: 80%;
-  top: 70%;
-  width: 90px;
-  height: 90px;
+  left: 77%;
+  top: 60%;
+  width: 150px;
+  height: 150px;
 }

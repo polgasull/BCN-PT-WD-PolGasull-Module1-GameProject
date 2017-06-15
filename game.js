@@ -17,7 +17,7 @@ function Game(options) {
   }
 
 Game.prototype.generateTarget = function() {
-  var targetType = Math.random() < 0.7;
+  var targetType = Math.random() < 0.8;
   this.target = new Target(this.rows, this.columns, targetType);
 };
 
@@ -30,7 +30,7 @@ Game.prototype.start = function() {
 
   this.autorun = setInterval( function(){
       self.autoCreateTarget();
-    }, 3000);
+    }, 2000);
 };
 
 Game.prototype.drawTarget = function(){
@@ -38,7 +38,7 @@ Game.prototype.drawTarget = function(){
   $(selector).addClass('target');
 
       if (this.target.targetToKill){
-        if (this.target.row === 0 && this.target.column === 3 ){
+        if (this.target.row === 0 && this.target.column === 2 ){
           $(selector).addClass('knife');
         } else {
           $(selector).addClass('terro');
@@ -64,6 +64,7 @@ Game.prototype.touchTarget = function() {
       if (targetTouched) {
         $(".target").addClass("deadTarget");
         self.countPoints();
+        new buzz.sound("music/New AWP sound effect (No Bolt).mp3").play();
         $("div").unbind();
         setTimeout(function(){
           $(".deadTarget").removeClass("deadTarget");
@@ -78,11 +79,18 @@ Game.prototype.removeAllTargets = function() {
 };
 
 Game.prototype.countPoints = function() {
+  var self = this;
   console.log(this.points);
   if (this.target.targetToKill) {
-    $(".totalPoints span").text(this.points += 5);
+    $(".totalPoints span:nth-child(2)").text("+5").css({"font-size": "25px","color": "green"}).show("").delay(1000).fadeOut();
+    setTimeout(function(){
+    $(".totalPoints span:nth-child(1)").text(self.points += 5);
+  }, 2000);
   } else {
-    $(".totalPoints span").text(this.points -= 5);
+    $(".totalPoints span:nth-child(2)").text("-5").css({"font-size": "25px","color": "red"}).show("").delay(1000).fadeOut();
+    setTimeout(function(){
+    $(".totalPoints span:nth-child(1)").text(self.points -= 5);
+    }, 2000);
   }
 };
 
