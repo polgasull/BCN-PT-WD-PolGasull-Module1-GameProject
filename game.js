@@ -28,6 +28,7 @@ Game.prototype.generateBullets = function() {
 
 Game.prototype.start = function() {
   var self = this;
+
   this.countdown = setInterval( function() {
     self.countDownTimer();
   }, 1000);
@@ -43,9 +44,10 @@ Game.prototype.drawTarget = function(){
   $(selector).addClass('target');
 
       if (this.target.targetToKill){
-        if (this.target.row === 0 && this.target.column === 2 ){
+        if (this.target.row === 0 && this.target.column === 3){
           $(selector).addClass('knife');
-        } else {
+        }
+        else {
           $(selector).addClass('terro');
         }
       } else {
@@ -68,8 +70,8 @@ Game.prototype.touchTarget = function() {
     var targetTouched = self.target.isTouched();
       if (targetTouched) {
         $(".target").addClass("deadTarget");
-        self.countPoints();
         new buzz.sound("music/New AWP sound effect (No Bolt).mp3").play();
+        self.countPoints();
         $("div").unbind();
         setTimeout(function(){
           $(".deadTarget").removeClass("deadTarget");
@@ -80,7 +82,7 @@ Game.prototype.touchTarget = function() {
 };
 
 Game.prototype.removeAllTargets = function() {
-  $(".target").removeClass("target pollo terro knife");
+  $(".target").removeClass("target pollo terro knife plane");
 };
 
 Game.prototype.countPoints = function() {
@@ -134,7 +136,7 @@ $(document).ready(function() {
 
   myGame = new Game({
     rows: 1,
-    columns: 9,
+    columns: 12,
   });
 
   myGame.start();

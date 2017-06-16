@@ -4,8 +4,8 @@ body {
 
 .sky {
   animation:zoomIn 10s linear infinite alternate;
-  background-image:url("img/sky-wallpapers-2.jpg");
-  height: 100%;
+  background-image:url("img/sniper_wallpaper_background_46714.jpg");
+  height: 110%;
   width: 100%;
   background-size:cover;
   position:fixed;
@@ -16,10 +16,10 @@ body {
   animation:zoomIn 10s linear infinite alternate-reverse;
   background-image:url("img/Wrinkled_glass_Texture_-_4928_x_3264.jpg");
   background-size:cover;
-  height:100vh;
-  opacity:.3;
+  height:130%;
+  opacity: 0.3;
   position:fixed;
-  width:100vw;
+  width:100%;
   z-index: -1;
 }
 
@@ -28,7 +28,7 @@ body {
     transform:scale(1);
   }
   100% {
-    transform:scale(1.5);
+    transform:scale(1.2);
   }
 }
 
@@ -38,15 +38,12 @@ body {
   background-position: center;
   background-size: cover;
   margin-top: 1%;
-  width: 1100px;
+  width: 1000px;
   height: 600px;
   padding: 0;
   border: 1px solid black;
   cursor: crosshair;
-}
-
-.board {
-  opacity: 0.8;
+  z-index: 1;
 }
 
 .cell {
@@ -56,6 +53,7 @@ body {
   float: left;
   height: 120px;
   width: 120px;
+  z-index: 2;
 }
 
 .target {
@@ -63,7 +61,7 @@ body {
 }
 
 .pollo {
-  background-image: url("img/pollo.png");
+  background-image: url("img/gallina.png");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -82,6 +80,8 @@ body {
 
 .deadTarget {
   background-image: url("img/bloodbullethole.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .totalPoints, .displayTimer {
@@ -101,14 +101,56 @@ body {
 }
 
 .balcony {
-  position: relative;
-  z-index: 2;
-  left: 798px;
-  top: 170px;
-  width: 170px;
+  position: absolute;
+  z-index: 3;
+  left: 965px;
+  top: 260px;
+  width: 169px;
 }
 
-.cell:nth-child(0n+10)  {
+.rightBalcony2 {
+  position: absolute;
+  z-index: 3;
+  left: 410px;
+  top: 395px;
+  width: 29px;
+}
+
+.leftBalcony {
+  position: absolute;
+  z-index: 3;
+  left: 310px;
+  top: 395px;
+  width: 44px;
+  height: 20px;
+}
+
+.leftBalcony2 {
+  position: absolute;
+  z-index: 3;
+  left: 310px;
+  top: 325px;
+  width: 40px;
+  height: 22px;
+}
+
+.midBalcony {
+  position: absolute;
+  z-index: 3;
+  left: 727px;
+  top: 312px;
+  width: 160px;
+}
+
+.plane {
+  position: absolute;
+  z-index: 3;
+  left: 527px;
+  top: 102px;
+  width: 80px;
+}
+
+.cell:nth-child(0n+1)  {
   position: absolute;
   left: 73%;
   top: 26%;
@@ -142,15 +184,15 @@ body {
 
 .cell:nth-child(0n+5)  {
   position: absolute;
-  left: 21%;
-  top: 37%;
+  left: 21.5%;
+  top: 46%;
   width: 40px;
   height: 44px;
 }
 
 .cell:nth-child(0n+6)  {
   position: absolute;
-  left: 17%;
+  left: 21.5%;
   top: 37%;
   width: 40px;
   height: 44px;
@@ -161,21 +203,45 @@ body {
   left: 44%;
   top: 57%;
   width: 30px;
-  height: 30px;
+  height: 28px;
 }
 
 .cell:nth-child(0n+8)  {
   position: absolute;
-  left: 15%;
-  top: 18%;
+  left: 16%;
+  top: 19%;
   width: 40px;
   height: 41px;
 }
 
 .cell:nth-child(0n+9)  {
   position: absolute;
-  left: 77%;
-  top: 60%;
-  width: 150px;
+  left: 57%;
+  top: 62%;
+  width: 140px;
   height: 150px;
+}
+
+.cell:nth-child(0n+10)  {
+  position: absolute;
+  left: 52%;
+  top: 21%;
+  width: 70px;
+  height: 70px;
+}
+
+.cell:nth-child(0n+11)  {
+  position: absolute;
+  left: 55%;
+  top: 33%;
+  width: 80px;
+  height: 81px;
+}
+
+.cell:nth-child(0n+12)  {
+  position: absolute;
+  left: 28.5%;
+  top: 47%;
+  width: 29px;
+  height: 31px;
 }
