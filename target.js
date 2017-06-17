@@ -2,13 +2,13 @@ function Target(gameRows, gameColumns, targetRole) {
 
   this.row = Math.floor(Math.random() * gameRows);
   this.column = Math.floor(Math.random() * gameColumns);
-  this.touched = false;
+  this.killed = false;
   this.targetToKill = targetRole;
 
 }
 
-Target.prototype.isTouched = function() {
-  if (this.touched) {
+Target.prototype.isKilled = function() {
+  if (this.killed) {
     return ;
   } else {
     return true;
