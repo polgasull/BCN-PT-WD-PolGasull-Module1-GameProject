@@ -3,7 +3,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 60;
+      this.timer = 5;
       this.bullets = 5;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
@@ -35,7 +35,8 @@ Game.prototype.start = function() {
 Game.prototype.countDownTimer = function() {
     $(".displayTimer span").text(this.timer--);
     if (this.timer === -1) {
-      $( ".container" ).append( "<p>GAME OVER</p>" );
+      $( ".container" ).append( "<p>GAME <br> OVER</p>" );
+      new buzz.sound("music/gameOver.wav").setVolume(100).play();
       clearInterval(this.countdown);
       this.removeAllTargets();
       clearInterval(this.autorun);
@@ -136,15 +137,14 @@ Game.prototype.countPoints = function() {
   }
 };
 
-
 Game.prototype.assignControlsToKeys = function() {
   $("body").on("keydown", function(event){
     switch (event.keyCode) {
       case 80:
         if (this.countdown, this.autorun) {
-          $( ".container" ).append( "<p>GAME PAUSED</p>" );
+          $( ".container" ).append( "<p>GAME PAUSED</p>").css({"color": "black"});
           this.stop();
-        } else {
+        } else  {
           this.start();
         }
         break;

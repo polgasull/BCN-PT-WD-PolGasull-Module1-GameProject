@@ -103,9 +103,12 @@ body {
 
 .container p {
   position: absolute;
+  z-index: 6;
+  color: black;
   left: 30%;
-  top: 10%;
-  font-size: 200px;
+  top: 9%;
+  font-size: 230px;
+  font-family: Impact, Charcoal, sans-serif
 }
 
 .balcony {
