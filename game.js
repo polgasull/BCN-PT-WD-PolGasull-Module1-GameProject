@@ -69,13 +69,9 @@ Game.prototype.drawTarget = function(){
       } else {
         $(selector).addClass('pollo');
       }
-
-  // this.killTarget();
 };
 
-
 Game.prototype.autoCreateTarget = function() {
-  // $("div").unbind();
   this.removeAllTargets();
   this.generateTarget();
   this.drawTarget();
@@ -91,25 +87,16 @@ Game.prototype.shoot = function() {
       self.drawBullets();
         if ($(e.target).hasClass("target")) {
           self.killTarget();
-        } else {
-          //sonido de cargador vacío
-          console.log('caca');
         }
+      } else {
+        new buzz.sound("music/outOfAmmo.wav").setVolume(100).play();
+        console.log('I NEED TO RELOAD!!!');
       }
   });
-
-  // $(".container").on("click", ".target", function(){
-  //   console.log("pilla pendejo!");
-  // });
-};
-
-Game.prototype.reload = function() {
-
 };
 
 Game.prototype.killTarget = function() {
   var self = this;
-  // $('.target').on("click",function(){
     clearInterval(self.autorun);
     var targetKill = self.target.isKilled();
     if (targetKill) {
@@ -123,7 +110,6 @@ Game.prototype.killTarget = function() {
         self.removeAllTargets();
       }, 1500);
     }
-  // });
 };
 
 Game.prototype.removeAllTargets = function() {
@@ -161,6 +147,17 @@ Game.prototype.assignControlsToKeys = function() {
         } else {
           this.start();
         }
+        break;
+      case 82:
+      var self = this;
+      if (this.bullets === 0) {
+        this.bullets = 5;
+        new buzz.sound("music/reloadShotgun.wav").setVolume(100).play();
+        setTimeout(function(){
+        self.drawBullets();
+      }, 800);
+    }
+        break;
     }
   }.bind(this));
 };
