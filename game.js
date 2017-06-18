@@ -19,7 +19,7 @@ function Game(options) {
 
 Game.prototype.start = function() {
   var self = this;
-  new buzz.sound("music/CoD- Modern Warfare 2 Soundtrack - Boneyard Intro.mp3").play();
+  new buzz.sound("music/CoD- Modern Warfare 2 Soundtrack - Boneyard Intro.mp3").setVolume(50).play();
   this.countdown = setInterval( function() {
     self.countDownTimer();
   }, 1000);
@@ -152,7 +152,7 @@ Game.prototype.assignControlsToKeys = function() {
       var self = this;
       if (this.bullets === 0) {
         this.bullets = 5;
-        new buzz.sound("music/reloadShotgun.wav").setVolume(100).play();
+        new buzz.sound("music/winchesterReload.wav").setVolume(100).play();
         setTimeout(function(){
         self.drawBullets();
       }, 800);
