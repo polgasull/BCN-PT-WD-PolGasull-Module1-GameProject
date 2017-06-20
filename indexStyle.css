@@ -1,0 +1,44 @@
+.background {
+  animation:zoomIn 10s linear infinite alternate;
+  background-image:url("img/indexBackground.jpg");
+  height: 110%;
+  width: 100%;
+  background-size:cover;
+  position:fixed;
+  z-index: -3;
+  margin: 0px;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform:scale(1);
+  }
+  100% {
+    transform:scale(1.2);
+  }
+}
+
+.mainBox {
+  float: right;
+  font-size: 70px;
+  color: white;
+  font-weight: 600;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  color: white;
+}
+
+.start {
+  text-decoration: none;
+  color: white;
+}
+
+.instr {
+  text-decoration: none;
+  color: white;
+}
+
+.mainBox a:hover {
+  text-decoration: none;
+  color: #927447;
+  font-size: 90px;
+}
