@@ -1,0 +1,56 @@
+body {
+  background-image: url("img/soldier-wallpaper-22.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Georgia, serif
+}
+
+.container {
+  color: black;
+  font-weight: 600;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+p {
+  font-size: 25px;
+}
+
+.instrFirstP span {
+  color: green;
+  font-size: 30px;
+}
+
+.instrSecondP span {
+  color: red;
+  font-size: 30px;
+}
+
+.gameInfo {
+  font-size: 30px;
+}
+
+.editedBy {
+  position: relative;
+  left: 10.5%;
+  top: 50px;
+  font-size: 15px;
+}
+
+.goBackToMenu {
+  position: relative;
+  top: 130px;
+  font-size: 35px;
+  color: black;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  text-decoration: none;
+  right: 3%;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #927447;
+}

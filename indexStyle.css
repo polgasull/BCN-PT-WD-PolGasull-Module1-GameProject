@@ -19,12 +19,13 @@
 }
 
 .mainBox {
+  position: relative;
   float: right;
-  font-size: 70px;
+  font-size: 60px;
   color: white;
   font-weight: 600;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  color: white;
+  top: 40px;
 }
 
 .start {
@@ -40,5 +41,4 @@
 .mainBox a:hover {
   text-decoration: none;
   color: #927447;
-  font-size: 90px;
 }

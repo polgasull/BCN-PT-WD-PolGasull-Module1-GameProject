@@ -3,7 +3,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 45;
+      this.timer = 60;
       this.bullets = 5;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
