@@ -108,7 +108,8 @@ body {
   left: 30%;
   top: 9%;
   font-size: 230px;
-  font-family: Impact, Charcoal, sans-serif
+  font-family: Impact, Charcoal, sans-serif;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .container a {
@@ -119,6 +120,11 @@ body {
   top: 45%;
   font-size: 40px;
   font-family: Impact, Charcoal, sans-serif
+}
+
+.container a:hover {
+  color: #810505;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 .balcony {
