@@ -3,7 +3,7 @@ function Game(options) {
       this.columns = options.columns;
       this.target = new Target(options.rows, options.columns);
       this.points = 0;
-      this.timer = 60;
+      this.timer = 5;
       this.bullets = 5;
 
   for (var rowIndex = 0; rowIndex < this.rows; rowIndex++){
@@ -29,13 +29,13 @@ Game.prototype.start = function() {
 
   this.autorun = setInterval( function(){
       self.autoCreateTarget();
-  }, 1500);
+  }, 1200);
 };
 
 Game.prototype.countDownTimer = function() {
     $(".displayTimer span").text(this.timer--);
     if (this.timer === -1) {
-      $( ".container" ).append( "<p>GAME <br> OVER</p>" );
+      $( ".container" ).append( "<p>GAME <br> OVER</p>", '<a href="newGame.html" class="btn btn-info" role="button">Try again</a>');
       new buzz.sound("music/gameOver.wav").setVolume(100).play();
       clearInterval(this.countdown);
       this.removeAllTargets();
@@ -106,10 +106,10 @@ Game.prototype.killTarget = function() {
       self.countPoints();
       self.autorun = setInterval( function(){
           self.autoCreateTarget();
-        }, 1500);
+        }, 1200);
       setTimeout(function(){
         self.removeAllTargets();
-      }, 1500);
+      }, 1200);
     }
 };
 

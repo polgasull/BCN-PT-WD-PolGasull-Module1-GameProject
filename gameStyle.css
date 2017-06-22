@@ -111,6 +111,16 @@ body {
   font-family: Impact, Charcoal, sans-serif
 }
 
+.container a {
+  position: absolute;
+  z-index: 6;
+  color: black;
+  left: 40%;
+  top: 45%;
+  font-size: 40px;
+  font-family: Impact, Charcoal, sans-serif
+}
+
 .balcony {
   position: absolute;
   z-index: 3;
