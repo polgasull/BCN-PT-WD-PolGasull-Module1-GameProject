@@ -33,6 +33,7 @@ body {
 }
 
 .container {
+  position: relative;
   background-image: url("img/mapaBackground.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -105,8 +106,7 @@ body {
   position: absolute;
   z-index: 6;
   color: black;
-  left: 30%;
-  top: 9%;
+  left: 24%;
   font-size: 230px;
   font-family: Impact, Charcoal, sans-serif;
   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
@@ -117,7 +117,7 @@ body {
   z-index: 6;
   color: black;
   left: 40%;
-  top: 45%;
+  top: 50%;
   font-size: 40px;
   font-family: Impact, Charcoal, sans-serif
 }
@@ -130,24 +130,24 @@ body {
 .balcony {
   position: absolute;
   z-index: 3;
-  left: 965px;
-  top: 260px;
+  left: 745px;
+  top: 175px;
   width: 169px;
 }
 
 .rightBalcony2 {
   position: absolute;
   z-index: 3;
-  left: 410px;
-  top: 395px;
+  left: 183px;
+  top: 310px;
   width: 29px;
 }
 
 .leftBalcony {
   position: absolute;
   z-index: 3;
-  left: 310px;
-  top: 395px;
+  left: 91px;
+  top: 305px;
   width: 44px;
   height: 20px;
 }
@@ -155,17 +155,17 @@ body {
 .leftBalcony2 {
   position: absolute;
   z-index: 3;
-  left: 310px;
-  top: 325px;
+  left: 91px;
+  top: 238px;
   width: 40px;
-  height: 22px;
+  height: 20px;
 }
 
 .midBalcony {
   position: absolute;
   z-index: 3;
-  left: 727px;
-  top: 312px;
+  left: 507px;
+  top: 225px;
   width: 160px;
 }
 
@@ -177,98 +177,98 @@ body {
   width: 80px;
 }
 
-.cell:nth-child(0n+1)  {
+.cell:nth-child(15)  {
   position: absolute;
-  left: 73%;
-  top: 26%;
+  left: 75%;
+  top: 21%;
   width: 80px;
   height: 80px;
 }
 
-.cell:nth-child(0n+2)  {
+.cell:nth-child(16)  {
   position: absolute;
-  left: 70%;
-  top: 26%;
+  left: 78%;
+  top: 21%;
   width: 80px;
   height: 80px;
 }
 
-.cell:nth-child(0n+3)  {
+.cell:nth-child(17)  {
   position: absolute;
-  left: 67%;
-  top: 26%;
+  left: 83%;
+  top: 21%;
   width: 80px;
   height: 80px;
 }
 
-.cell:nth-child(0n+4)  {
+.cell:nth-child(14)  {
   position: absolute;
-  left: 23%;
-  top: 60%;
+  left: 16%;
+  top: 63%;
   width: 130px;
   height: 200px;
 }
 
-.cell:nth-child(0n+5)  {
+.cell:nth-child(13)  {
   position: absolute;
-  left: 22%;
+  left: 9.5%;
   top: 46%;
   width: 40px;
   height: 44px;
 }
 
-.cell:nth-child(0n+6)  {
+.cell:nth-child(6)  {
   position: absolute;
-  left: 21.5%;
-  top: 37%;
+  left: 9%;
+  top: 35%;
   width: 40px;
   height: 44px;
   }
 
-.cell:nth-child(0n+7)  {
+.cell:nth-child(7)  {
   position: absolute;
-  left: 44%;
-  top: 57%;
+  left: 41%;
+  top: 61%;
   width: 30px;
   height: 28px;
 }
 
-.cell:nth-child(0n+8)  {
+.cell:nth-child(8)  {
   position: absolute;
-  left: 16%;
-  top: 19%;
+  left: 3%;
+  top: 11%;
   width: 40px;
   height: 41px;
 }
 
-.cell:nth-child(0n+9)  {
+.cell:nth-child(9)  {
   position: absolute;
-  left: 57%;
-  top: 62%;
+  left: 60%;
+  top: 67%;
   width: 140px;
   height: 150px;
 }
 
-.cell:nth-child(0n+10)  {
+.cell:nth-child(10)  {
   position: absolute;
   left: 52%;
-  top: 20.5%;
+  top: 13%;
   width: 65px;
   height: 65px;
 }
 
-.cell:nth-child(0n+11)  {
+.cell:nth-child(11)  {
   position: absolute;
   left: 55%;
-  top: 33%;
+  top: 29%;
   width: 80px;
   height: 81px;
 }
 
-.cell:nth-child(0n+12)  {
+.cell:nth-child(12)  {
   position: absolute;
-  left: 28.5%;
-  top: 47%;
+  left: 18.2%;
+  top: 48.5%;
   width: 29px;
   height: 31px;
 }

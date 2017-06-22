@@ -61,7 +61,7 @@ Game.prototype.drawTarget = function(){
   $(selector).addClass('target');
 
       if (this.target.targetToKill){
-        if (this.target.row === 0 && this.target.column === 3){
+        if (this.target.row === 0 && this.target.column === 8){
           $(selector).addClass('knife');
         }
         else {
